@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{7C2BD180-E71A-42E1-8903-8D77AFE191EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContactService", "ContactService", "{6529E3C5-4194-4CAD-97CD-1126EA904C49}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReportService", "ReportService", "{9BB16DF0-A405-47E2-83E7-857795ECA3AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiseAssessment.ContactService.Infrastructure", "RiseAssessment.ContactService.Infrastructure\RiseAssessment.ContactService.Infrastructure.csproj", "{9890D0EE-0211-4981-8E13-2DC5953C5816}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiseAssessment.ContactService.Domain", "RiseAssessment.ContactService.Domain\RiseAssessment.ContactService.Domain.csproj", "{5A5189F2-1A65-4557-98BD-CC89D87A0DAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiseAssessment.ContactService.Core", "RiseAssessment.ContactService.Core\RiseAssessment.ContactService.Core.csproj", "{7A76DF40-B3F9-47A5-A797-C45BF8BAC268}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiseAssessment.ContactService.ContactAPI", "RiseAssessment.ContactService.ContactAPI\RiseAssessment.ContactService.ContactAPI.csproj", "{45D829E5-215A-49FC-98D7-98D9CAAFA7BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiseAssessment.ReportService.Domain", "RiseAssessment.ReportService.Domain\RiseAssessment.ReportService.Domain.csproj", "{5D21A74C-3BDD-42CE-A609-AC03415709AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiseAssessment.ReportService.Core", "RiseAssessment.ReportService.Core\RiseAssessment.ReportService.Core.csproj", "{3F53831C-E614-4EA7-B134-A4149B61CB96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiseAssessment.ReportService.ReportUI", "RiseAssessment.ReportService.ReportUI\RiseAssessment.ReportService.ReportUI.csproj", "{A3608249-D414-46F2-BF16-71AF9901E989}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{06965495-6DDB-4D04-9204-8FA848ACBC04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9890D0EE-0211-4981-8E13-2DC5953C5816}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9890D0EE-0211-4981-8E13-2DC5953C5816}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9890D0EE-0211-4981-8E13-2DC5953C5816}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9890D0EE-0211-4981-8E13-2DC5953C5816}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A5189F2-1A65-4557-98BD-CC89D87A0DAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A5189F2-1A65-4557-98BD-CC89D87A0DAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A5189F2-1A65-4557-98BD-CC89D87A0DAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A5189F2-1A65-4557-98BD-CC89D87A0DAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A76DF40-B3F9-47A5-A797-C45BF8BAC268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A76DF40-B3F9-47A5-A797-C45BF8BAC268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A76DF40-B3F9-47A5-A797-C45BF8BAC268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A76DF40-B3F9-47A5-A797-C45BF8BAC268}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45D829E5-215A-49FC-98D7-98D9CAAFA7BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45D829E5-215A-49FC-98D7-98D9CAAFA7BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45D829E5-215A-49FC-98D7-98D9CAAFA7BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45D829E5-215A-49FC-98D7-98D9CAAFA7BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D21A74C-3BDD-42CE-A609-AC03415709AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D21A74C-3BDD-42CE-A609-AC03415709AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D21A74C-3BDD-42CE-A609-AC03415709AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D21A74C-3BDD-42CE-A609-AC03415709AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F53831C-E614-4EA7-B134-A4149B61CB96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F53831C-E614-4EA7-B134-A4149B61CB96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F53831C-E614-4EA7-B134-A4149B61CB96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F53831C-E614-4EA7-B134-A4149B61CB96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3608249-D414-46F2-BF16-71AF9901E989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3608249-D414-46F2-BF16-71AF9901E989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3608249-D414-46F2-BF16-71AF9901E989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3608249-D414-46F2-BF16-71AF9901E989}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6529E3C5-4194-4CAD-97CD-1126EA904C49} = {7C2BD180-E71A-42E1-8903-8D77AFE191EB}
+		{9BB16DF0-A405-47E2-83E7-857795ECA3AE} = {7C2BD180-E71A-42E1-8903-8D77AFE191EB}
+		{9890D0EE-0211-4981-8E13-2DC5953C5816} = {6529E3C5-4194-4CAD-97CD-1126EA904C49}
+		{5A5189F2-1A65-4557-98BD-CC89D87A0DAA} = {6529E3C5-4194-4CAD-97CD-1126EA904C49}
+		{7A76DF40-B3F9-47A5-A797-C45BF8BAC268} = {6529E3C5-4194-4CAD-97CD-1126EA904C49}
+		{45D829E5-215A-49FC-98D7-98D9CAAFA7BA} = {6529E3C5-4194-4CAD-97CD-1126EA904C49}
+		{5D21A74C-3BDD-42CE-A609-AC03415709AD} = {9BB16DF0-A405-47E2-83E7-857795ECA3AE}
+		{3F53831C-E614-4EA7-B134-A4149B61CB96} = {9BB16DF0-A405-47E2-83E7-857795ECA3AE}
+		{A3608249-D414-46F2-BF16-71AF9901E989} = {9BB16DF0-A405-47E2-83E7-857795ECA3AE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51075D2F-7284-4C28-A9BC-74AE2A7AE172}
+	EndGlobalSection
+EndGlobal
