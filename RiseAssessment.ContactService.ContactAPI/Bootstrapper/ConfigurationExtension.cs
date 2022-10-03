@@ -1,5 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using RiseAssessment.ContactService.Infrastructure.Context;
+using RiseAssessment.ContactService.Infrastructure.Repositories.Abstract;
+using RiseAssessment.ContactService.Infrastructure.Repositories.Concrete;
 
 namespace RiseAssessment.ContactService.ContactAPI.Bootstrapper
 {
@@ -9,7 +12,16 @@ namespace RiseAssessment.ContactService.ContactAPI.Bootstrapper
         {
             services.AddDbContext<ContactDbContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("DevelopmentDbConnection")));
-        
+
+            #region Repository
+            services.AddScoped<IContactRepository, ContactRepository>();
+            services.AddScoped<IContactInformationRepository, ContactInformationRepository>();
+            #endregion
+
+
+            services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
+
+
             return services;
         }
     }
