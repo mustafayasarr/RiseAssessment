@@ -16,6 +16,6 @@ namespace RiseAssessment.ContactService.Domain.Models.Commands.Report
 
         }
         public string ReportName { get; set; }
-        public string Location { get; set; }
+        public string? Location { get; set; }
     }
 }

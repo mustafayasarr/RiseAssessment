@@ -26,12 +26,12 @@ namespace RiseAssessment.ContactService.Core.Services.Contact
             var response = new BaseResponseResult();
             try
             {
-                var contactEntity = new Domain.Models.Entities.Contact(command.Name, command.LastName, command.Company);
+                var contactEntity = new Domain.Models.Entities.Contact(command.Name.ToUpper(), command.LastName.ToUpper(), command.Company.ToUpper());
                 _unitOfWork.ContactRepository.Add(contactEntity);
                 if (command.ContactInformation != null && command.ContactInformation.Count > 0)
                 {
 
-                    var entityInfoList = command.ContactInformation.Select(x => new Domain.Models.Entities.ContactInformation(x.InformationType, x.InformationContent, contactEntity.Id));
+                    var entityInfoList = command.ContactInformation.Select(x => new Domain.Models.Entities.ContactInformation(x.InformationType, x.InformationContent.ToUpper(), contactEntity.Id));
 
                     _unitOfWork.ContactInformationRepository.AddRange(entityInfoList);
 

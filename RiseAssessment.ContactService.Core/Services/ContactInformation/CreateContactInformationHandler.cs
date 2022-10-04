@@ -40,7 +40,7 @@ namespace RiseAssessment.ContactService.Core.Services.ContactInformation
                     return response;
 
                 }
-                _unitOfWork.ContactInformationRepository.Add(new Domain.Models.Entities.ContactInformation(command.InformationType, command.InformationContent, Guid.Parse(command.ContactId)));
+                _unitOfWork.ContactInformationRepository.Add(new Domain.Models.Entities.ContactInformation(command.InformationType, command.InformationContent.ToUpper(), Guid.Parse(command.ContactId)));
                 await _unitOfWork.CompleteAsync();
             }
             catch (Exception ex)
