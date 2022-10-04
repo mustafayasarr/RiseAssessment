@@ -1,5 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using RiseAssessment.ReportService.Core.Gateways;
+using RiseAssessment.ReportService.Core.Gateways.ContactService;
 using RiseAssessment.ReportService.Infrastructure.Context;
 using RiseAssessment.ReportService.Infrastructure.Repositories.Abstract;
 using RiseAssessment.ReportService.Infrastructure.Repositories.Concrete;
@@ -13,9 +15,13 @@ namespace RiseAssessment.ReportService.ReportAPI.Bootstrapper
             services.AddDbContext<ContactDbContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("DevelopmentDbConnection")));
 
-            #region Repository
+            #region Lifetime
         
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<IRestService, RestService>();
+            services.AddSingleton<IContactGateway, ContactGateway>();
+
             #endregion
 
 

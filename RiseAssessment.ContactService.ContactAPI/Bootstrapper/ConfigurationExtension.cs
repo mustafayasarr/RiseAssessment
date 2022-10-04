@@ -13,7 +13,7 @@ namespace RiseAssessment.ContactService.ContactAPI.Bootstrapper
             services.AddDbContext<ContactDbContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("DevelopmentDbConnection")));
 
-            #region Repository
+            #region Lifetime
             services.AddScoped<IContactRepository, ContactRepository>();
             services.AddScoped<IContactInformationRepository, ContactInformationRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
