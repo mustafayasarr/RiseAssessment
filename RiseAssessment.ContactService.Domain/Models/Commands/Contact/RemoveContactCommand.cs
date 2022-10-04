@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using RiseAssessment.ContactService.Domain.Models.Results;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,13 @@ namespace RiseAssessment.ContactService.Domain.Models.Commands.Contact
     {
         public string ContactId { get; set; }
 
+
+    }
+    public class RemoveContactCommandValidator : AbstractValidator<RemoveContactCommand>
+    {
+        public RemoveContactCommandValidator()
+        {
+            RuleFor(x => x.ContactId).NotEmpty().WithMessage("Lütfen ContactId giriniz.");
+        }
     }
 }

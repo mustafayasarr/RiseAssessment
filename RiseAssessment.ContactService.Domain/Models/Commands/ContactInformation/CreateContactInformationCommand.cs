@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using RiseAssessment.ContactService.Domain.Models.Enums;
 using RiseAssessment.ContactService.Domain.Models.Results;
 using System;
@@ -20,5 +21,14 @@ namespace RiseAssessment.ContactService.Domain.Models.Commands.ContactInformatio
         public InformationType InformationType { get; set; }
         public string InformationContent { get; set; }
         public string ContactId { get; set; }
+    }
+    public class CreateContactInformationValidator : AbstractValidator<CreateContactInformationCommand>
+    {
+        public CreateContactInformationValidator()
+        {
+            RuleFor(x => x.InformationType)
+                .NotEmpty().WithMessage("Lütfen information type giriniz.");
+            RuleFor(x => x.ContactId).NotEmpty().WithMessage("Lütfen contact id giriniz.");
+        }
     }
 }

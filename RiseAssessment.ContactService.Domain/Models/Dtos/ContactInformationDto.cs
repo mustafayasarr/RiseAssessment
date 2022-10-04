@@ -1,4 +1,5 @@
-﻿using RiseAssessment.ContactService.Domain.Models.Enums;
+﻿using FluentValidation;
+using RiseAssessment.ContactService.Domain.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,5 +25,13 @@ namespace RiseAssessment.ContactService.Domain.Models.Dtos
         public InformationType InformationType { get; set; }
         public string InformationContent { get; set; }
         public DateTime CreatedDate { get; set; }
+    }
+    public class ContactInformationDtoValidator : AbstractValidator<ContactInformationDto>
+    {
+        public ContactInformationDtoValidator()
+        {
+            RuleFor(x => x.InformationContent).NotEmpty().WithMessage("Lütfen içerik giriniz.");
+            RuleFor(x => x.InformationType).NotNull().WithMessage("Lütfen iletişim tipi giriniz.");
+        }
     }
 }
