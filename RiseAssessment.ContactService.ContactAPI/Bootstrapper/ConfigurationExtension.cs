@@ -16,6 +16,7 @@ namespace RiseAssessment.ContactService.ContactAPI.Bootstrapper
             #region Repository
             services.AddScoped<IContactRepository, ContactRepository>();
             services.AddScoped<IContactInformationRepository, ContactInformationRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             #endregion
 
 

@@ -32,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RiseAssessment.ContactService.Core\RiseAssessment.ContactService.Core.csproj" />
     <ProjectReference Include="..\RiseAssessment.ContactService.Infrastructure\RiseAssessment.ContactService.Infrastructure.csproj" />
   </ItemGroup>
 
