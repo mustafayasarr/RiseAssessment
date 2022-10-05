@@ -1,3 +1,4 @@
+using Microsoft.Extensions.FileProviders;
 using RiseAssessment.ReportService.ReportAPI.Bootstrapper;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,8 +22,22 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+app.UseAuthorization(); 
 
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+           Path.Combine(builder.Environment.ContentRootPath, "Reports")),
+    RequestPath = "/Reports"
+});
+
+app.UseFileServer(new FileServerOptions
+{
+    FileProvider = new PhysicalFileProvider(
+           Path.Combine(builder.Environment.ContentRootPath, "Reports")),
+    RequestPath = "/Reports",
+    EnableDirectoryBrowsing = true
+});
 app.MapControllers();
 
 app.Run();

@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DotNetCore.CAP" Version="6.2.0" />
+    <PackageReference Include="DotNetCore.CAP.Dashboard" Version="6.2.0" />
+    <PackageReference Include="DotNetCore.CAP.PostgreSql" Version="6.2.0" />
+    <PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="6.2.0" />
     <PackageReference Include="FluentValidation" Version="11.2.2" />
     <PackageReference Include="MediatR" Version="11.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
@@ -27,6 +31,10 @@
   <ItemGroup>
     <ProjectReference Include="..\RiseAssessment.ReportService.Core\RiseAssessment.ReportService.Core.csproj" />
     <ProjectReference Include="..\RiseAssessment.ReportService.Infrastructure\RiseAssessment.ReportService.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Reports\" />
   </ItemGroup>
 
 </Project>

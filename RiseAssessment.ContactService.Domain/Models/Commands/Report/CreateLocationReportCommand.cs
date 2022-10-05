@@ -6,8 +6,9 @@ namespace RiseAssessment.ContactService.Domain.Models.Commands.Report
 {
     public class CreateLocationReportCommand : IRequest<BaseResponseResult<LocationReportResult>>
     {
-        public CreateLocationReportCommand(string reportName, string location)
+        public CreateLocationReportCommand(int? id,string? reportName, string? location)
         {
+            Id = id;
             ReportName = reportName;
             Location = location;
         }
@@ -15,7 +16,8 @@ namespace RiseAssessment.ContactService.Domain.Models.Commands.Report
         {
 
         }
-        public string ReportName { get; set; }
+        public int? Id { get; set; }
+        public string? ReportName { get; set; }
         public string? Location { get; set; }
     }
 }

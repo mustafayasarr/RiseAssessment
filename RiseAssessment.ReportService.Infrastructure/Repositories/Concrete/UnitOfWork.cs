@@ -16,10 +16,12 @@ namespace RiseAssessment.ReportService.Infrastructure.Repositories.Concrete
         public UnitOfWork(ContactDbContext context)
         {
             _context = context;
+            ReportItemRepository = new ReportItemRepository(_context);
 
 
             transaction = context.Database.BeginTransaction();
         }
+        public IReportItemRepository ReportItemRepository { get; }
 
         public void Complete(bool state = true)
         {

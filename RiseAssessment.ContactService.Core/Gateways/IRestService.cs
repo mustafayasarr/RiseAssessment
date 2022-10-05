@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RiseAssessment.ReportService.Core.Gateways
+namespace RiseAssessment.ContactService.Core.Gateways
 {
     public interface IRestService
     {

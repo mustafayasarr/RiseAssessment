@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using RiseAssessment.ReportService.Infrastructure.Context;
@@ -11,9 +12,10 @@ using RiseAssessment.ReportService.Infrastructure.Context;
 namespace RiseAssessment.ReportService.Infrastructure.Migrations
 {
     [DbContext(typeof(ContactDbContext))]
-    partial class ContactDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221005013320_2")]
+    partial class _2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,22 +38,11 @@ namespace RiseAssessment.ReportService.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("Message")
-                        .HasColumnType("text");
-
                     b.Property<DateTime?>("ModifiedAtUTC")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Path")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("ReportCreateDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("ReportName")
-                        .HasColumnType("text");
-
-                    b.Property<string>("RequestObjectJson")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("Status")
