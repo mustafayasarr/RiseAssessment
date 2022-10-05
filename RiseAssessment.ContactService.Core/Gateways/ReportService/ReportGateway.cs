@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using RiseAssessment.ContactService.Domain.Constants;
-using RiseAssessment.ContactService.Domain.Models.Commands.Report;
+using RiseAssessment.ContactService.Domain.Models.Dtos;
 using RiseAssessment.ContactService.Domain.Models.Results;
-using RiseAssessment.ContactService.Domain.Models.Results.Report;
 
 namespace RiseAssessment.ContactService.Core.Gateways.ContactService
 {
@@ -14,7 +13,7 @@ namespace RiseAssessment.ContactService.Core.Gateways.ContactService
             BaseAddress = configuration["ServiceUrls:ReportService"];
         }
 
-        public async Task<BaseResponseResult> UpdateReport(LocationReportResult request)
+        public async Task<BaseResponseResult> UpdateReport(UpdateLocationReportDto request)
         {
             return await _restService.PostMethodAsync<BaseResponseResult>(request, BaseAddress + GatewayUrls.UpdateReport);
         }

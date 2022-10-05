@@ -51,10 +51,10 @@ namespace RiseAssessment.ReportService.ReportAPI.Controllers
             return Ok(response);
 
         }
+
+
+        [ApiExplorerSettings(IgnoreApi = true)]
         [HttpPost]
-        [SwaggerOperation(Summary = "Rapor Ekleme")]
-        [ProducesResponseType(typeof(BaseResponseResult), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(BaseResponseResult), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<BaseResponseResult>> UpdateReport(UpdateLocationReportCommand query)
         {
             var response = await _mediator.Send(query);

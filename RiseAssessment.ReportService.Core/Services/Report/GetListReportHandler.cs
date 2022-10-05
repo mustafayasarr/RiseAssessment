@@ -29,7 +29,8 @@ namespace RiseAssessment.ReportService.Core.Services.Report
 
             try
             {
-                response.Result = await _unitOfWork.ReportItemRepository.Table.Select(x => new GetReportResult { Id = x.Id, CreatedDate = x.CreatedAtUTC, Path = string.IsNullOrEmpty(x.Path) ? "" : $"{_httpAccessor.HttpContext.Request.Scheme}://{_httpAccessor.HttpContext.Request.Host.Value}/Reports/{x.Path}", Status = x.Status }).ToListAsync();
+                response.Result = await _unitOfWork.ReportItemRepository.Table.Select(x => new GetReportResult { Id = x.Id, CreatedDate = x.CreatedAtUTC, Path = string.IsNullOrEmpty(x.Path) ? "" : 
+                    $"{_httpAccessor.HttpContext.Request.Scheme}://{_httpAccessor.HttpContext.Request.Host.Value}/Reports/{x.Path}", Status = x.Status }).ToListAsync();
 
             }
             catch (Exception ex)

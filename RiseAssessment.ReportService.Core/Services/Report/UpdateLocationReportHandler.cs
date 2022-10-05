@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 using RiseAssessment.ReportService.Domain.Constants;
 using RiseAssessment.ReportService.Domain.Models.Commands;
+using RiseAssessment.ReportService.Domain.Models.Enums;
 using RiseAssessment.ReportService.Domain.Models.Results;
 using RiseAssessment.ReportService.Infrastructure.Repositories.Abstract;
 using System;
@@ -36,11 +37,20 @@ namespace RiseAssessment.ReportService.Core.Services.Report
 
                 if (getEntity != null)
                 {
-                    getEntity.Path = Excel(request);
-                    getEntity.Status = Domain.Models.Enums.Status.Tamamlandi;
-                    await _unitOfWork.ReportItemRepository.UpdateAsync(getEntity);
-                    await _unitOfWork.CompleteAsync();
+                    if (request.Status == Status.Tamamlandi)
+                    {
+                        getEntity.Path = ExcelSave(request);
+                        getEntity.ReportCreateDate = request.CreatedDate;
+
+                    }
                 }
+                getEntity.ReportName = request.ReportName;
+                getEntity.Status = request.Status;
+                getEntity.RequestObjectJson = request.JsonRequest;
+                getEntity.Message = request.Message;
+
+                await _unitOfWork.ReportItemRepository.UpdateAsync(getEntity);
+                await _unitOfWork.CompleteAsync();
             }
             catch (Exception ex)
             {
@@ -51,7 +61,7 @@ namespace RiseAssessment.ReportService.Core.Services.Report
             }
             return response;
         }
-        private string Excel(UpdateLocationReportCommand command)
+        private string ExcelSave(UpdateLocationReportCommand command)
         {
             using (var workbook = new XLWorkbook())
             {
@@ -76,18 +86,16 @@ namespace RiseAssessment.ReportService.Core.Services.Report
                 }
                 worksheet.Columns().AdjustToContents();
 
-                using (var stream = new MemoryStream())
-                {
-                    workbook.SaveAs(stream);
+                using var stream = new MemoryStream();
+                workbook.SaveAs(stream);
 
-                    var fileName = $"LocationReport" + Guid.NewGuid().ToString() + ".xlsx";
-                    string tempFilePath = Path.Combine(_hostingEnvironment.ContentRootPath, "Reports", fileName);
-                    using (var fs = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
-                    {
-                        stream.WriteTo(fs);
-                    }
-                    return fileName;
+                var fileName = $"{command.ReportName?.ToLower().Replace(" ", string.Empty)}_Report_" + Guid.NewGuid().ToString() + ".xlsx";
+                string reportFile = Path.Combine(_hostingEnvironment.ContentRootPath, "Reports", fileName);
+                using (var fs = new FileStream(reportFile, FileMode.Create, FileAccess.Write))
+                {
+                    stream.WriteTo(fs);
                 }
+                return fileName;
 
             }
 

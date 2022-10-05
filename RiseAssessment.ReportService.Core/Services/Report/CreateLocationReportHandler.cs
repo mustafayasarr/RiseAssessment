@@ -28,7 +28,7 @@ namespace RiseAssessment.ReportService.Core.Services.Report
             var response = new BaseResponseResult();
             try
             {
-                var entity = new Domain.Models.Entities.ReportItem(Status.Bekliyor);
+                var entity = new Domain.Models.Entities.ReportItem(request.ReportName,Status.Bekliyor);
                 await _unitOfWork.ReportItemRepository.CreateAsync(entity);
                 await _unitOfWork.CompleteAsync();
                 request.Id = entity.Id;
