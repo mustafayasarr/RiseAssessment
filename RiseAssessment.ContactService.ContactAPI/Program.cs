@@ -1,3 +1,4 @@
+using DotNetCore.CAP;
 using RiseAssessment.ContactService.ContactAPI.Bootstrapper;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,5 +27,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseCapDashboard();
 
 app.Run();

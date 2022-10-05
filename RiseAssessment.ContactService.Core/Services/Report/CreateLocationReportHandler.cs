@@ -27,6 +27,7 @@ namespace RiseAssessment.ContactService.Core.Services.Report
             {
                 int idCount = 0;
                 var result = new LocationReportResult();
+                result.Id = request.Id;
                 result.ReportName = request.ReportName;
                 result.CreatedDate = DateTime.UtcNow;
 

@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using RiseAssessment.ReportService.Domain.Models.Commands;
+using RiseAssessment.ReportService.Domain.Models.Queries;
 using RiseAssessment.ReportService.Domain.Models.Results;
 using RiseAssessment.ReportService.Domain.Models.Results.Report;
 using Swashbuckle.AspNetCore.Annotations;
@@ -21,7 +22,7 @@ namespace RiseAssessment.ReportService.ReportAPI.Controllers
         [SwaggerOperation(Summary = "Lokasyona göre raporlama getirir.")]
         [ProducesResponseType(typeof(BaseResponseResult<LocationReportResult>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(BaseResponseResult<LocationReportResult>), StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<BaseResponseResult<LocationReportResult>>> LocationReport(CreateLocationReportCommand command)
+        public async Task<ActionResult<BaseResponseResult<LocationReportResult>>> CreateLocationReport(CreateLocationReportCommand command)
         {
             var response = await _mediator.Send(command);
 
@@ -33,6 +34,40 @@ namespace RiseAssessment.ReportService.ReportAPI.Controllers
             return Ok(response);
 
         }
+
+        [HttpGet]
+        [SwaggerOperation(Summary = "Rapor Listeleme")]
+        [ProducesResponseType(typeof(BaseResponseResult<GetReportResult>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(BaseResponseResult<GetReportResult>), StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<BaseResponseResult<List<GetReportResult>>>> GetListReport([FromQuery]GetListReportQuery query)
+        {
+            var response = await _mediator.Send(query);
+
+            if (response.HasError)
+            {
+                return BadRequest(response);
+            }
+
+            return Ok(response);
+
+        }
+        [HttpPost]
+        [SwaggerOperation(Summary = "Rapor Ekleme")]
+        [ProducesResponseType(typeof(BaseResponseResult), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(BaseResponseResult), StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<BaseResponseResult>> UpdateReport(UpdateLocationReportCommand query)
+        {
+            var response = await _mediator.Send(query);
+
+            if (response.HasError)
+            {
+                return BadRequest(response);
+            }
+
+            return Ok(response);
+
+        }
+
 
     }
 }

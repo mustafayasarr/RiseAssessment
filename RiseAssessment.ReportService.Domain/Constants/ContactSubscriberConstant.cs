@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace RiseAssessment.ReportService.Domain.Constants
 {
-    public static class GatewayUrls
+    public static class ContactSubscriberConstant
     {
-        public const string CreateLocationReport = "/Report/CreateLocationReport";
+        public const string CreateReportQueue = "CreateReportQueue";
     }
 }

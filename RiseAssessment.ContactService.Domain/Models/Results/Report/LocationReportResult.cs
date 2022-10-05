@@ -8,7 +8,7 @@ namespace RiseAssessment.ContactService.Domain.Models.Results.Report
         {
             ReportItems = new List<ReportItemDto>();
         }
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string ReportName { get; set; }
         public DateTime CreatedDate { get; set; }
         public List<ReportItemDto> ReportItems { get; set; }

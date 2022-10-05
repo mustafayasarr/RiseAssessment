@@ -9,9 +9,12 @@ namespace RiseAssessment.ReportService.Infrastructure.Context
         {
 
         }
+        public DbSet<ReportItem> ReportItem { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ReportItem>().HasQueryFilter(b => !b.IsDeleted);
+
             base.OnModelCreating(modelBuilder);
 
         }

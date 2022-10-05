@@ -4,7 +4,7 @@ using RiseAssessment.ReportService.Domain.Models.Results.Report;
 
 namespace RiseAssessment.ReportService.Domain.Models.Commands
 {
-    public class CreateLocationReportCommand : IRequest<BaseResponseResult<LocationReportResult>>
+    public class CreateLocationReportCommand : IRequest<BaseResponseResult>
     {
         public CreateLocationReportCommand(string reportName, string location)
         {
@@ -15,6 +15,7 @@ namespace RiseAssessment.ReportService.Domain.Models.Commands
         {
 
         }
+        public int? Id { get; set; }
         public string ReportName { get; set; }
         public string? Location { get; set; }
     }

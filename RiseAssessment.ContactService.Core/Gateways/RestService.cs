@@ -4,7 +4,7 @@ using RestSharp;
 using RestSharpPolly;
 using RestSharpPolly.PolicyProviders;
 
-namespace RiseAssessment.ReportService.Core.Gateways
+namespace RiseAssessment.ContactService.Core.Gateways
 {
     public class RestService : IRestService
     {
