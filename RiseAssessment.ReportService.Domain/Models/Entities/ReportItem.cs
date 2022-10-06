@@ -14,6 +14,10 @@ namespace RiseAssessment.ReportService.Domain.Models.Entities
             ReportName = reportName;
             Status = status;
         }
+        public ReportItem()
+        {
+
+        }
         public string? ReportName { get; set; }
         public string? Path { get; set; }
         public string? RequestObjectJson { get; set; }
