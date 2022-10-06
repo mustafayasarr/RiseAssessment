@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RiseAssessment.ReportService.Domain.Models.Commands;
 using RiseAssessment.ReportService.Domain.Models.Queries;
+using RiseAssessment.ReportService.Domain.Models.Request;
 using RiseAssessment.ReportService.Domain.Models.Results;
 using RiseAssessment.ReportService.Domain.Models.Results.Report;
 using Swashbuckle.AspNetCore.Annotations;
@@ -22,9 +23,9 @@ namespace RiseAssessment.ReportService.ReportAPI.Controllers
         [SwaggerOperation(Summary = "Lokasyona göre raporlama getirir.")]
         [ProducesResponseType(typeof(BaseResponseResult<LocationReportResult>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(BaseResponseResult<LocationReportResult>), StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<BaseResponseResult<LocationReportResult>>> CreateLocationReport(CreateLocationReportCommand command)
+        public async Task<ActionResult<BaseResponseResult<LocationReportResult>>> CreateLocationReport(CreateLocationReportRequest request)
         {
-            var response = await _mediator.Send(command);
+            var response = await _mediator.Send(new CreateLocationReportCommand(0,request.ReportName,request.Location));
 
             if (response.HasError)
             {
@@ -39,9 +40,9 @@ namespace RiseAssessment.ReportService.ReportAPI.Controllers
         [SwaggerOperation(Summary = "Rapor Listeleme")]
         [ProducesResponseType(typeof(BaseResponseResult<GetReportResult>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(BaseResponseResult<GetReportResult>), StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<BaseResponseResult<List<GetReportResult>>>> GetListReport([FromQuery]GetListReportQuery query)
+        public async Task<ActionResult<BaseResponseResult<List<GetReportResult>>>> GetListReport()
         {
-            var response = await _mediator.Send(query);
+            var response = await _mediator.Send(new GetListReportQuery());
 
             if (response.HasError)
             {
